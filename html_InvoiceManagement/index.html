@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+
+<link rel="stylesheet" href="style.css" />
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+<header>
+	<div>
+	<img src="images/Group 20399.svg" > 
+    <img src ="images/logo.svg"    alt="images/logo" class="center" > 
+ </div>
+</header>
+<hr/>
+
+   <h3 style="color:white;">Invoice List</h3>
+	
+	<title> H2H web app</title>
+
+	<div style="text-align:right" "color:white;" >
+
+      <button id="show-login">+Add</button>
+
+       <div class="popup">
+      <div class="close-btn">&times;</div>
+
+
+        <div class="form">
+
+
+        	<form>
+        		<div style="text-align:left" "color:white;" >
+        		        			<h1 style="color:white;"  >Add Invoice</h1>
+             <hr>
+             </div>
+
+          
+          <div style="text-align:left" "color:white;">
+        	<section>
+	  <div>
+	  	<span>
+	  		
+		<label >Customer Name</label>
+		<input type="text" name="name">
+	
+
+      		<label style="text-align:right">Due Date</label>
+	  <input type="date" name="birth">
+	  </span>
+     </div>
+
+		
+	  
+	
+   <span>
+	<div>
+		<label>Customer No</label>
+		<input type="text" name="name">
+
+
+		<label>Notes</label>
+	<input type="text" style="font-size: 18pt; height: 100px; width:280px; ">
+			
+		</div>
+		</span>
+	
+
+
+     <div>
+		<label>Invoice No</label>
+		<input type="text" name="name">
+		</div>
+
+      <div>
+		<label>Invoice Amount</label>
+		<input type="text" name="name">
+		</div>
+
+	
+</section>
+</div>
+<hr>
+
+
+<footer>
+	<div style="text-align:right">
+
+	<button style="float:left;">Cancel</button>
+	
+		<button>Clear</button>
+		<button>Add</button>
+	</div>
+</footer>
+</form>
+         
+
+       </div>
+    </div>
+
+  
+      <script>
+        document
+          .querySelector("#show-login")
+          .addEventListener("click", function () {
+            document.querySelector(".popup").classList.add("active");
+          });
+        document
+          .querySelector(".popup .close-btn")
+          .addEventListener("click", function () {
+            document.querySelector(".popup").classList.remove("active");
+          });
+      </script>
+
+      
+
+      <button id="show">Edit</button>
+
+       <div class="pop">
+      <div class="close">&times;</div>
+
+
+        <div class="for">
+
+
+        <form>
+        		<div style="text-align:left" "color:white;" >
+        		        			<h1  style="color:white;" >Edit Invoice</h1>
+             <hr>
+             </div>
+
+          
+          <div style="text-align:left" "color:white;">
+	  <div>
+	 <label >Invoice Amount</label>
+		<input type="text" name="name">
+     </div>
+
+	   <div>
+		<label style="text">Notes</label>
+		<input type="text" style="font-size: 18pt; height: 160px; width:280px; ">
+				</div>
+</div>
+
+<hr>
+
+
+<footer>
+	<div style="text-align:right">
+
+	<button style="float:left;">Cancel</button>
+	
+		<button>Reset</button>
+		<button>Save</button>
+	</div>
+</footer>
+</div>
+</div>
+</form>
+
+<script>
+        document
+          .querySelector("#show")
+          .addEventListener("click", function () {
+            document.querySelector(".pop").classList.add("active");
+          });
+        document
+          .querySelector(".pop .close")
+          .addEventListener("click", function () {
+            document.querySelector(".pop").classList.remove("active");
+          });
+      </script>
+
+
+
+
+
+		 <button id="show_delete">Delete</button>
+
+       <div class="pop_delete">
+      <div class="close_delete">&times;</div>
+
+
+        <div class="for_delete">
+
+
+        	<form>
+        		<div style="text-align:left" "color:white;" >
+        		        			<h1   >Delete record(s)?</h1>
+             <hr>
+             </div>
+
+          
+          <div style="text-align:left" "color:white;">
+	  <div>
+	 <p>You'll lose your record(s) after this actions.We can't recover them once you delete.</p>
+     </div>
+
+	   <div>
+		<p>Are you sure you want to <strong style="color:red;">permanently delete </strong>them</p>
+				</div>
+</div>
+
+
+<hr>
+
+<footer>
+	<div style="text-align:right">
+	
+		<button>Cancel</button>
+		<button>Delete</button>
+	</div>
+</footer>
+</form>
+</div>
+</div>
+
+<script>
+        document
+          .querySelector("#show_delete")
+          .addEventListener("click", function () {
+            document.querySelector(".pop_delete").classList.add("active");
+          });
+        document
+          .querySelector(".pop_delete .close_delete")
+          .addEventListener("click", function () {
+            document.querySelector(".pop_delete").classList.remove("active");
+          });
+      </script>
+
+
+
+
+		<input id='myInput' onkeyup='searchTable()' type="search"  placeholder="Search by invoice Number">
+	</div>
+
+<script>
+function searchTable() {
+    var input, filter, found, table, tr, td, i, j;
+    input = document.getElementById("myInput");
+    filter = input.value.toUpperCase();
+    table = document.getElementById("myTable");
+    tr = table.getElementsByTagName("tr");
+    for (i = 0; i < tr.length; i++) {
+        td = tr[i].getElementsByTagName("td");
+        for (j = 0; j < td.length; j++) {
+            if (td[j].innerHTML.toUpperCase().indexOf(filter) > -1) {
+                found = true;
+            }
+        }
+        if (found) {
+            tr[i].style.display = "";
+            found = false;
+        } else {
+            tr[i].style.display = "none";
+        }
+    }
+}
+</script>
+</head>
+
+
+
+
+<body>
+   <table class="table"  id="myTable" >
+		<tr>
+     
+			<th>Customer Name</th>
+			<th>Customer #</th>
+			<th>Invoice #</th>
+			<th>Invoice Amount</th>
+			<th>Due Date</th>
+			<th>Predicted Payment Date</th>
+			<th>Notes</th>
+		</tr>
+   
+
+ <tbody id="geeks"></tbody>
+ <script>
+	
+  $(document).ready(function () {
+    $.getJSON("csvjson.json", function (data) {
+      var student = "";
+      $.each(data, function (key, value) {
+        
+        student += "<tr>";
+        student += "<td>" + value.name_customer + "</td>";
+        student += "<td>" + value.cust_number + "</td>";
+        student += "<td>" + value.invoice_id + "</td>";
+        student += "<td>" + value.total_open_amount + "</td>";
+        student += "<td>" + value.due_in_date + "</td>";
+        student += "<td>" + value.Date_of_payment + "</td>";
+        student += "<td>" + value.invoice_currency + "</td>";
+        student += "</tr>";
+      });
+      $("#geeks").append(student);
+    });
+  });
+</script>
+</table> 
+</body>
+</html>
+
+ 
